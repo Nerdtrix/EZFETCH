@@ -251,7 +251,7 @@ async function patch(reqURL: string, body: object, headers?: HeadersInit, option
  * @returns object
  * @throws exceptions
  */
-async function get(reqURL: string, params: object, headers?: HeadersInit, option?: optionSettings) : Promise<any>
+async function get(reqURL: string, params?: object, headers?: HeadersInit, option?: optionSettings) : Promise<any>
 {
   //Validations
   if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
