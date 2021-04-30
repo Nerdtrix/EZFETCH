@@ -45,6 +45,13 @@ const getRequest = async () =>
 
 ```
 
+###### get optional params
+- URL string required
+- Params object obtional
+- headers object optional
+- options object optional
+
+
 ###### Post request example
 
 ```js
@@ -68,6 +75,14 @@ const postRequest = async () =>
 
 ```
 
+###### post optional params
+- URL string required
+- body object required
+- headers object optional
+- options object optional
+
+
+
 ###### Put request example
 
 ```js
@@ -90,6 +105,11 @@ const putRequest = async () =>
 }
 
 ```
+###### put optional params
+- URL string required
+- body object required
+- headers object optional
+- options object optional
 
 ###### Patch request example
 
@@ -114,6 +134,12 @@ const patchRequest = async () =>
 
 ```
 
+###### patch optional params
+- URL string required
+- body object required
+- headers object optional
+- options object optional
+
 ###### Delete request example
 
 ```js
@@ -132,5 +158,10 @@ const deleteRequest = async () =>
 }
 
 ```
+
+###### _delete optional params
+- URL string required
+- headers object optional
+- options object optional
 
 ###### Powered by [Nerdtrix.com](http://nerdtrix.com)

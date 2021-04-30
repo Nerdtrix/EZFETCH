@@ -17,7 +17,10 @@ interface optionSettings {
 
 
 //Default headers
-let defaultHeaders: HeadersInit = {"Content-Type" : "application/json"};
+let defaultHeaders: HeadersInit = {
+  "Content-Type" : "application/json",
+  "Accept" : "application/json"
+};
 
 
 //Valid request modes
