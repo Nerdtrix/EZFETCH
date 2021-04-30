@@ -164,4 +164,26 @@ const deleteRequest = async () =>
 - headers object optional
 - options object optional
 
+
+## Default optional configuration
+
+###### Headers
+```json
+{
+  "Content-Type" : "application/json",
+  "Accept" : "application/json"
+}
+```
+
+###### Options
+```json
+{
+    mode: "cors",
+    cache: "default",
+    credentials: "include",
+    redirect: "follow",
+    policy: "no-referrer-when-downgrade"
+}
+```
+
 ###### Powered by [Nerdtrix.com](http://nerdtrix.com)
