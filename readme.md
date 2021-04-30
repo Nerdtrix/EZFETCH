@@ -1,9 +1,11 @@
-npm init
+# Powered by Nerdtrix.com
 
-npm add --dev typescript
+## Installation
 
-npm add --dev react-dom react @types/react-dom @types/react
+```npm i asynchronousfetch```
 
+## How to use
 
-//test example project
-npm create react-app example --template typescript
+- Import the module\
+```import { ASYNCFETCH } from 'asynchronousfetch';```
+- Use the module

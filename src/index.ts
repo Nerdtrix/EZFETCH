@@ -300,9 +300,9 @@ function _objectToQueryString(obj: object) : string
 
   return "?" + request;
 }
-  
-  
-export const EZFETCH = {
+
+
+export const ASYNCFETCH = {
   post,
   get,
   put,

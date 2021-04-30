@@ -1,23 +1,33 @@
 {
-  "name": "ezfetch",
+  "name": "asynchronousfetch",
   "version": "1.0.0",
-  "description": "",
-  "main": "./build/index.js",
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jerry Urena",
-  "license": "MIT",
+  "description": "npm init",
+  "main": "index.js",
   "dependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "react": "^117.0.2",
     "react-dom": "^17.0.2"
- }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nerdtrix/EZFETCH.git"
+  },
+  "author": "Jerry Urena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nerdtrix/EZFETCH/issues"
+  },
+  "homepage": "https://github.com/Nerdtrix/EZFETCH#readme",
+  "files": [
+    "/build"
+  ]
 }
