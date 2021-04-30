@@ -2,10 +2,51 @@
 
 ## Installation
 
-```npm i asynchronousfetch```
+```npm i fetchasync```
 
-## How to use
+## Import
 
-- Import the module\
-```import { ASYNCFETCH } from 'asynchronousfetch';```
-- Use the module
+```import { FETCHASYNC } from 'fetchasync';```
+
+## Get Example
+
+```js
+const get = async () => 
+{
+    try
+    {
+        let response = await FETCHASYNC.get("myURL", []);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+
+```
+
+## POST Example
+
+```js
+const post = async () => 
+{
+    try
+    {
+        let postParams = {
+            username: "example",
+            email: "example"
+        };
+
+        let response = await FETCHASYNC.post("myURL", postParams);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+
+```

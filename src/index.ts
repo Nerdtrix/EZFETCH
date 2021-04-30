@@ -302,7 +302,7 @@ function _objectToQueryString(obj: object) : string
 }
 
 
-export const ASYNCFETCH = {
+export const FETCHASYNC = {
   post,
   get,
   put,
