@@ -178,12 +178,20 @@ const deleteRequest = async () =>
 ###### Options
 ```json
 {
-    mode: "cors",
-    cache: "default",
-    credentials: "include",
-    redirect: "follow",
-    policy: "no-referrer-when-downgrade"
+    "mode": "cors",
+    "cache": "default",
+    "credentials": "include",
+    "redirect": "follow",
+    "policy": "no-referrer-when-downgrade"
 }
 ```
+
+## Credits
+This module was inspired and created by @jerryurenaa 
+
+
+## License
+[MIT](https://github.com/Nerdtrix/FetchAsync/blob/main/LICENSE.md)
+
 
 ###### Powered by [Nerdtrix.com](http://nerdtrix.com)

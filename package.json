@@ -1,6 +1,6 @@
 {
   "name": "fetchasync",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nerdtrix/EZFETCH.git"
+    "url": "git+https://github.com/Nerdtrix/FetchAsync.git"
   },
   "author": "Jerry Urena",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nerdtrix/EZFETCH/issues"
+    "url": "https://github.com/Nerdtrix/FetchAsync/issues"
   },
-  "homepage": "https://github.com/Nerdtrix/EZFETCH#readme",
+  "homepage": "https://github.com/Nerdtrix/FetchAsync#readme",
   "dependencies": {
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
