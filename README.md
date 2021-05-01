@@ -159,7 +159,7 @@ const postRequest = async () =>
 
 #### PUT request
 
-- Simple POST request without optional params
+- Simple PUT request without optional params
 
 ```js
 const putRequest = async () => 
@@ -221,7 +221,7 @@ const putRequest = async () =>
 - headers object optional
 - options object optional
 
-###### PATCH request
+#### PATCH request
 
 - Simple PATCH request without optional params
 ```js
@@ -284,7 +284,7 @@ const patchRequest = async () =>
 - headers object optional
 - options object optional
 
-###### DELETE request
+#### DELETE request
 
 - Simple DELETE request without optional params
 ```js
