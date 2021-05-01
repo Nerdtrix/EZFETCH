@@ -362,7 +362,7 @@ const deleteRequest = async () =>
 ```
 
 ## Credits
-This module was inspired and created by @jerryurenaa 
+This module was inspired and created by [@jerryurenaa](http://jerryurenaa.com) 
 
 
 ## License
