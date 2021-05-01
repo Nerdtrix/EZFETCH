@@ -26,8 +26,9 @@ fetchasync provides a way to fetch modern API using await/async.
 
 ## Examples
 
-###### Get request example
+#### GET request
 
+- Simple get request without optional params
 ```js
 const getRequest = async () => 
 {
@@ -42,17 +43,57 @@ const getRequest = async () =>
         console.log(error);
     }
 }
-
 ```
 
-###### get optional params
+- Url with params, custom headers, and custom options
+```js
+const getRequest = async () => 
+{
+    try
+    {
+        let params = {
+            "example": "test"
+        };
+
+        let headers = {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        };
+        
+        let options = {
+            "mode": "cors",
+            "cache": "default",
+            "credentials": "include",
+            "redirect": "follow",
+            "policy": "no-referrer-when-downgrade"
+        }
+
+        let response = await FETCHASYNC.get("myURL", params, headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+```
+- To fetch an URL with params ex: http://myURL.com?example=test use the following example\
+```js
+let response = await FETCHASYNC.get("http://myURL.com", {"example" "test"});
+```
+
+
+###### Available GET params
 - URL string required
 - Params object obtional
 - headers object optional
 - options object optional
 
 
-###### Post request example
+#### POST request
+
+- Simple POST request without optional params
 
 ```js
 const postRequest = async () => 
@@ -74,8 +115,41 @@ const postRequest = async () =>
 }
 
 ```
+- POST request with custom headers and custom options
+```js
+const postRequest = async () => 
+{
+    try
+    {
+        let body = {
+            example: "example"
+        };
 
-###### post optional params
+        let headers = {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        };
+        
+        let options = {
+            "mode": "cors",
+            "cache": "default",
+            "credentials": "include",
+            "redirect": "follow",
+            "policy": "no-referrer-when-downgrade"
+        }
+
+        let response = await FETCHASYNC.post("myURL", body, headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+```
+
+###### Available POST params
 - URL string required
 - body object required
 - headers object optional
@@ -83,7 +157,9 @@ const postRequest = async () =>
 
 
 
-###### Put request example
+#### PUT request example
+
+- Simple POST request without optional params
 
 ```js
 const putRequest = async () => 
@@ -105,7 +181,7 @@ const putRequest = async () =>
 }
 
 ```
-###### put optional params
+###### Available PUT params
 - URL string required
 - body object required
 - headers object optional
