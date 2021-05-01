@@ -1,5 +1,7 @@
 # fetchasync React Module
 
+ ![npm package](https://img.shields.io/badge/npm-1.0.2-red.svg)
+
 ## Overview
 fetchasync provides a way to fetch modern API using await/async. 
 
@@ -366,7 +368,7 @@ This module was inspired and created by @jerryurenaa
 
 
 ## License
-[MIT](https://github.com/Nerdtrix/FetchAsync/blob/main/LICENSE.md)
+FetchAsync is [MIT](https://github.com/Nerdtrix/FetchAsync/blob/main/LICENSE.md) licensed.
 
 
 ###### Powered by [Nerdtrix.com](http://nerdtrix.com)
