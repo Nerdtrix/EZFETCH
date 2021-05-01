@@ -1,7 +1,7 @@
 # Fetchasync ![npm package](https://img.shields.io/badge/npm-1.0.2-red.svg)
 
 ## Overview
-Fetchasync is a lightweight react js package created with typescript that provides a way to fetch modern API using await/async. 
+Fetchasync is a lightweight react js package created with typescript that provides an easy way to fetch modern API using await/async. 
 
 
 
@@ -368,7 +368,7 @@ This module was inspired and created by [@jerryurenaa](http://jerryurenaa.com)
 
 
 ## License
-FetchAsync is [MIT](https://github.com/Nerdtrix/FetchAsync/blob/main/LICENSE.md) licensed.
+Fetchasync is [MIT](https://github.com/Nerdtrix/FetchAsync/blob/main/LICENSE.md) licensed.
 
 
 ###### Powered by [Nerdtrix.com](http://nerdtrix.com)
