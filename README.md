@@ -78,7 +78,7 @@ const getRequest = async () =>
     }
 }
 ```
-- To fetch an URL with params ex: http://myURL.com?example=test use the following example\
+- To fetch an URL with params ex: http://myURL.com?example=test use the following example
 ```js
 let response = await FETCHASYNC.get("http://myURL.com", {"example" "test"});
 ```
@@ -157,7 +157,7 @@ const postRequest = async () =>
 
 
 
-#### PUT request example
+#### PUT request
 
 - Simple POST request without optional params
 
@@ -181,14 +181,49 @@ const putRequest = async () =>
 }
 
 ```
+- PUT request with custom headers and custom options
+```js
+const putRequest = async () => 
+{
+    try
+    {
+        let body = {
+            example: "example"
+        };
+
+        let headers = {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        };
+        
+        let options = {
+            "mode": "cors",
+            "cache": "default",
+            "credentials": "include",
+            "redirect": "follow",
+            "policy": "no-referrer-when-downgrade"
+        }
+
+        let response = await FETCHASYNC.put("myURL", body, headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+```
+
 ###### Available PUT params
 - URL string required
 - body object required
 - headers object optional
 - options object optional
 
-###### Patch request example
+###### PATCH request
 
+- Simple PATCH request without optional params
 ```js
 const patchRequest = async () => 
 {
@@ -209,15 +244,49 @@ const patchRequest = async () =>
 }
 
 ```
+- PATCH request with custom headers and custom options
+```js
+const patchRequest = async () => 
+{
+    try
+    {
+        let body = {
+            example: "example"
+        };
 
-###### patch optional params
+        let headers = {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        };
+        
+        let options = {
+            "mode": "cors",
+            "cache": "default",
+            "credentials": "include",
+            "redirect": "follow",
+            "policy": "no-referrer-when-downgrade"
+        }
+
+        let response = await FETCHASYNC.patch("myURL", body, headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+```
+
+###### Available PATCH params
 - URL string required
 - body object required
 - headers object optional
 - options object optional
 
-###### Delete request example
+###### DELETE request
 
+- Simple DELETE request without optional params
 ```js
 const deleteRequest = async () => 
 {
@@ -234,8 +303,38 @@ const deleteRequest = async () =>
 }
 
 ```
+- DELETE request with custom headers and custom options
+```js
+const deleteRequest = async () => 
+{
+    try
+    {
+        let headers = {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        };
+        
+        let options = {
+            "mode": "cors",
+            "cache": "default",
+            "credentials": "include",
+            "redirect": "follow",
+            "policy": "no-referrer-when-downgrade"
+        }
 
-###### _delete optional params
+        let response = await FETCHASYNC._delete("myURL", headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+
+```
+
+###### Available DELETE params
 - URL string required
 - headers object optional
 - options object optional
