@@ -7,7 +7,7 @@ Fetchasync is a lightweight package created with typescript that provides an eas
 
 ## Features
 - Uses await/async
-- Has default configuration for common Json API
+- Has default configuration for common JSON API
 - Errors 400 >= will go to the catch by default.
 - Errors 200 will stay within the try. 
 - Created with Typescript
@@ -87,11 +87,11 @@ let response = await FETCHASYNC.get("http://myURL.com", {"example" "test"});
 
 
 ###### Available GET params
-- URL string required
-- Params object obtional
-- returnJson boolean obtional
-- headers object optional
-- options object optional
+- URL string (required)
+- Params object (optional)
+- returnJson boolean (optional)
+- headers object (optional)
+- options object (optional)
 
 
 #### POST request
@@ -153,11 +153,11 @@ const postRequest = async () =>
 ```
 
 ###### Available POST params
-- URL string required
-- body object required
-- returnJson boolean obtional
-- headers object optional
-- options object optional
+- URL string (required)
+- body object (required)
+- returnJson boolean (optional)
+- headers object (optional)
+- options object (optional)
 
 
 
@@ -220,11 +220,11 @@ const putRequest = async () =>
 ```
 
 ###### Available PUT params
-- URL string required
-- body object required
-- returnJson boolean obtional
-- headers object optional
-- options object optional
+- URL string (required)
+- body object (required)
+- returnJson boolean (optional)
+- headers object (optional)
+- options object (optional)
 
 #### PATCH request
 
@@ -284,11 +284,11 @@ const patchRequest = async () =>
 ```
 
 ###### Available PATCH params
-- URL string required
-- body object required
-- returnJson boolean obtional
-- headers object optional
-- options object optional
+- URL string (required)
+- body object (required)
+- returnJson boolean (optional)
+- headers object (optional)
+- options object (optional)
 
 #### DELETE request
 
@@ -341,10 +341,10 @@ const deleteRequest = async () =>
 ```
 
 ###### Available DELETE params
-- URL string required
-- returnJson boolean obtional
-- headers object optional
-- options object optional
+- URL string (required)
+- returnJson boolean (optional)
+- headers object (optional)
+- options object (optional)
 
 
 ## Default optional configuration
@@ -369,9 +369,9 @@ const deleteRequest = async () =>
 ```
 
 ## Params details
-- URL: This parameter is to specify the URL that will be fetch
-- returnJson: This parameter is to specify if we are waiting for a json response or a promise. If false a promise will be returned. If true a JSON server response is expected. 
-- headers: This parameter is to specify the headers required to fetch the API. See **Headers** above to see the default headers.
+- URL: This parameter is to specify the URL that will be fetched
+- returnJson: This parameter is to specify if we are waiting for a JSON response or a promise. If false a promise will be returned. If true a JSON server response is expected. 
+- headers: This parameter is to specify the headers required to fetch the API. See **Headers** above, to see the default headers.
 - options: This parameter is to specify the type of fetch configuration. See **Options** above to see the default fetch config.
 
 ## Credits
