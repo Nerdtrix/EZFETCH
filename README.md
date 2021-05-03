@@ -70,7 +70,7 @@ const getRequest = async () =>
             "policy": "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.get("myURL", params, headers, options);
+        let response = await FETCHASYNC.get("myURL", params, true, headers, options);
 
         console.log(response);
     }
@@ -89,6 +89,7 @@ let response = await FETCHASYNC.get("http://myURL.com", {"example" "test"});
 ###### Available GET params
 - URL string required
 - Params object obtional
+- returnJson boolean obtional
 - headers object optional
 - options object optional
 
@@ -140,7 +141,7 @@ const postRequest = async () =>
             "policy": "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.post("myURL", body, headers, options);
+        let response = await FETCHASYNC.post("myURL", body, true, headers, options);
 
         console.log(response);
     }
@@ -154,6 +155,7 @@ const postRequest = async () =>
 ###### Available POST params
 - URL string required
 - body object required
+- returnJson boolean obtional
 - headers object optional
 - options object optional
 
@@ -206,7 +208,7 @@ const putRequest = async () =>
             "policy": "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.put("myURL", body, headers, options);
+        let response = await FETCHASYNC.put("myURL", body, true, headers, options);
 
         console.log(response);
     }
@@ -220,6 +222,7 @@ const putRequest = async () =>
 ###### Available PUT params
 - URL string required
 - body object required
+- returnJson boolean obtional
 - headers object optional
 - options object optional
 
@@ -269,7 +272,7 @@ const patchRequest = async () =>
             "policy": "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.patch("myURL", body, headers, options);
+        let response = await FETCHASYNC.patch("myURL", body, true, headers, options);
 
         console.log(response);
     }
@@ -283,6 +286,7 @@ const patchRequest = async () =>
 ###### Available PATCH params
 - URL string required
 - body object required
+- returnJson boolean obtional
 - headers object optional
 - options object optional
 
@@ -324,7 +328,7 @@ const deleteRequest = async () =>
             "policy": "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC._delete("myURL", headers, options);
+        let response = await FETCHASYNC._delete("myURL", true, headers, options);
 
         console.log(response);
     }
@@ -338,6 +342,7 @@ const deleteRequest = async () =>
 
 ###### Available DELETE params
 - URL string required
+- returnJson boolean obtional
 - headers object optional
 - options object optional
 
@@ -362,6 +367,12 @@ const deleteRequest = async () =>
     "policy": "no-referrer-when-downgrade"
 }
 ```
+
+## Params details
+- URL: This parameter is to specify the URL that will be fetch
+- returnJson: This parameter is to specify if we are waiting for a json response or a promise. If false a promise will be returned. If true a JSON server response is expected. 
+- headers: This parameter is to specify the headers required to fetch the API. See **Headers** above to see the default headers.
+- options: This parameter is to specify the type of fetch configuration. See **Options** above to see the default fetch config.
 
 ## Credits
 This module was inspired and created by [@jerryurenaa](http://jerryurenaa.com)

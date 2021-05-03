@@ -26,7 +26,7 @@ import {
  * @returns object
  * @thorws exceptions
  */
-export async function _delete(reqURL: string, headers?: HeadersInit, returnJson = true, option?: optionSettings) : Promise<any>
+export async function _delete(reqURL: string, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
 {
     //Validations
     if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");

@@ -1,7 +1,7 @@
 {
   "name": "fetchasync",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "Fetchasync is a lightweight package created with typescript that provides an easy way to fetch modern API using await/async.",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
@@ -18,17 +18,14 @@
   },
   "homepage": "https://github.com/Nerdtrix/FetchAsync#readme",
   "dependencies": {
-    "@types/react": "^17.0.4",
-    "@types/react-dom": "^17.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    
+  },
+  "devDependencies" : {
     "typescript": "^4.2.4"
   },
   "files": [
     "build"
   ],
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
  }
 }

@@ -27,7 +27,7 @@ import {
    * @returns object
    * @thorws exceptions
    */
-  export async function patch(reqURL: string, body: object, headers?: HeadersInit, returnJson = true, option?: optionSettings) : Promise<any>
+  export async function patch(reqURL: string, body: object, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
   {
     //Validations
     if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");

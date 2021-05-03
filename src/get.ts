@@ -27,7 +27,7 @@ import {
  * @returns object
  * @throws exceptions
  */
-export async function get(reqURL: string, params?: object, headers?: HeadersInit, returnJson = true, option?: optionSettings) : Promise<any>
+export async function get(reqURL: string, params?: object, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
 {
     //Validations
     if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
