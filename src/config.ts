@@ -18,14 +18,14 @@ export interface optionSettings {
   
   
 //Default headers
-export const defaultHeaders: HeadersInit = {
+const defaultHeaders: HeadersInit = {
     "Content-Type" : "application/json",
     "Accept" : "application/json"
 };
   
   
 //Valid request modes
-export const requestMode: string[] = [
+const requestMode: string[] = [
     "no-cors",
     "cors", //Default
     "same-origin"
@@ -33,7 +33,7 @@ export const requestMode: string[] = [
 
 
 //Valid request caches
-export const requestCache: string[] = [
+const requestCache: string[] = [
     "no-cache", 
     "default", //default
     "reload", 
@@ -43,7 +43,7 @@ export const requestCache: string[] = [
 
 
 //Valid request credentials
-export const requestCredentials: string[] = [
+const requestCredentials: string[] = [
     "same-origin",
     "include", 
     "omit"  
@@ -51,7 +51,7 @@ export const requestCredentials: string[] = [
 
 
 //Valid request redirects
-export const requestRedirect: string[] = [
+const requestRedirect: string[] = [
     "manual",
     "follow",//Default
     "error"
@@ -59,7 +59,7 @@ export const requestRedirect: string[] = [
 
 
 //Valid request policies
-export const referrerPolicy: string[] = [
+const referrerPolicy: string[] = [
     "no-referrer",
     "no-referrer-when-downgrade",//Default
     "origin",
@@ -85,3 +85,49 @@ export function objectToQueryString(obj: object) : string
 
     return "?" + request;
 }
+
+
+/**
+ * 
+ * @param option optionSettings
+ * @comment validate request options
+ */
+export function validateOptions(option?: optionSettings) : void
+{
+    //Validations
+    if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
+    if(!!option?.cache && !requestCache.includes(option?.cache)) throw ("invalid Request cache");
+    if(!!option?.credentials && !requestCredentials.includes(option?.credentials)) throw ("invalid Request credential");
+    if(!!option?.redirect && !requestRedirect.includes(option?.redirect)) throw ("invalid Request redirect");
+    if(!!option?.policy && !referrerPolicy.includes(option?.policy)) throw ("invalid Request policy");
+}
+
+
+/**
+ * 
+ * @param method 
+ * @param headers 
+ * @param option 
+ * @returns object
+ * @comment create a request header.
+ */
+export function assignConfig(method: string, headers?: HeadersInit, option?: optionSettings) : object
+{
+    let options = {
+        method: method,
+        headers: headers ?? defaultHeaders
+    };
+
+    if(!!option?.mode) Object.assign(options, {mode: option.mode});
+    if(!!option?.cache) Object.assign(options, {cache: option.cache});
+    if(!!option?.credentials) Object.assign(options, {credentials: option.credentials});
+    if(!!option?.redirect) Object.assign(options, {redirect: option.redirect});
+    if(!!option?.policy) Object.assign(options, {referrerPolicy: option.policy});
+
+    //Assign default
+    if(!option?.credentials) Object.assign(options, {credentials: requestCredentials[1]});
+
+    return options;
+}
+
+

@@ -9,12 +9,8 @@
 
 import {
     optionSettings, 
-    defaultHeaders, 
-    requestMode, 
-    requestCache, 
-    requestCredentials, 
-    requestRedirect, 
-    referrerPolicy } from './config';
+    assignConfig,
+    validateOptions} from './config';
   
   
   
@@ -28,23 +24,13 @@ import {
  */
 export async function _delete(reqURL: string, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
 {
-    //Validations
-    if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
-    if(!!option?.cache && !requestCache.includes(option?.cache)) throw ("invalid Request cache");
-    if(!!option?.credentials && !requestCredentials.includes(option?.credentials)) throw ("invalid Request credential");
-    if(!!option?.redirect && !requestRedirect.includes(option?.redirect)) throw ("invalid Request redirect");
-    if(!!option?.policy && !referrerPolicy.includes(option?.policy)) throw ("invalid Request policy");
+    //Validate option
+    validateOptions(option);
+    
+    //Create options
+    let options = assignConfig("DELETE", headers, option);
 
-    let options = {
-    method: "DELETE",
-    headers: headers ?? defaultHeaders,
-    RequestMode: option?.mode ?? requestMode[1],
-    RequestCache: option?.cache ?? requestCache[1], 
-    RequestCredentials: option?.credentials ?? requestCredentials[1], 
-    RequestRedirect: option?.redirect ?? requestRedirect[1],
-    ReferrerPolicy: option?.policy ?? referrerPolicy[1] 
-    };
-
+    //Start request
     let response = await fetch(reqURL, options);
 
     if(response.status >= 400 && response.status < 500)

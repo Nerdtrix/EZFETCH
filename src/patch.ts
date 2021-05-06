@@ -8,13 +8,9 @@
 
 
 import {
-    optionSettings, 
-    defaultHeaders, 
-    requestMode, 
-    requestCache, 
-    requestCredentials, 
-    requestRedirect, 
-    referrerPolicy } from './config';
+  optionSettings, 
+  assignConfig,
+  validateOptions} from './config';
   
   
   
@@ -29,25 +25,17 @@ import {
    */
   export async function patch(reqURL: string, body: object, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
   {
-    //Validations
-    if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
-    if(!!option?.cache && !requestCache.includes(option?.cache)) throw ("invalid Request cache");
-    if(!!option?.credentials && !requestCredentials.includes(option?.credentials)) throw ("invalid Request credential");
-    if(!!option?.redirect && !requestRedirect.includes(option?.redirect)) throw ("invalid Request redirect");
-    if(!!option?.policy && !referrerPolicy.includes(option?.policy)) throw ("invalid Request policy");
+    //Validate config
+    validateOptions(option);
+    
+    //Create options
+    let options = assignConfig("PATCH", headers, option);
+
+    //Add the body to the options
+    let optionsWithBody = Object.assign(options, {body: JSON.stringify(body)});
   
-    let options = {
-      method: "PATCH",
-      headers: headers ?? defaultHeaders,
-      body: JSON.stringify(body),
-      RequestMode: option?.mode ?? requestMode[1],
-      RequestCache: option?.cache ?? requestCache[1], 
-      RequestCredentials: option?.credentials ?? requestCredentials[1], 
-      RequestRedirect: option?.redirect ?? requestRedirect[1],
-      ReferrerPolicy: option?.policy ?? referrerPolicy[1] 
-    };
-  
-    let response = await fetch(reqURL, options);
+    //Create request
+    let response = await fetch(reqURL, optionsWithBody);
   
     if(response.status >= 400 && response.status < 500)
     {
