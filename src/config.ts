@@ -79,6 +79,8 @@ export const referrerPolicy: string[] = [
  */
 export function objectToQueryString(obj: object) : string
 {
+    if (Object.keys(obj).length == 0) return "";
+
     let request = Object.keys(obj).map(key => key + '=' + obj[key]).join('&');
 
     return "?" + request;

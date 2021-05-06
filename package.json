@@ -1,6 +1,6 @@
 {
   "name": "fetchasync",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Fetchasync is a lightweight package created with typescript that provides an easy way to fetch modern API using await/async.",
   "main": "build/index.js",
   "scripts": {
