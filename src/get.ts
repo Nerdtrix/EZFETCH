@@ -47,7 +47,7 @@ export async function get(reqURL: string, params?: object, returnJson = true, he
     };
 
     //Convert object to query string
-    let request = !!params ? objectToQueryString(params) : null;
+    let request = !!params ? objectToQueryString(params) : "";
 
     let response = await fetch(reqURL + request, options);
 
