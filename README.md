@@ -1,4 +1,4 @@
-# Fetchasync ![npm package](https://img.shields.io/badge/npm-1.0.8-red.svg)
+# Fetchasync ![npm package](https://img.shields.io/badge/npm-1.0.9-red.svg)
 
 ## Overview
 Fetchasync is a lightweight package created with typescript that provides an easy way to fetch modern API using await/async. 
