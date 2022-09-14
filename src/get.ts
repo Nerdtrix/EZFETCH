@@ -23,7 +23,12 @@ import {
  * @returns object
  * @throws exceptions
  */
-export async function get(reqURL: string, params?: object, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
+export async function get<T>(
+    reqURL: string, 
+    params?: object, 
+    returnJson = true, 
+    headers?: HeadersInit, 
+    option?: optionSettings) : Promise<T | any>
 {
     //Validate config
     validateOptions(option);
@@ -31,24 +36,32 @@ export async function get(reqURL: string, params?: object, returnJson = true, he
     //Create options
     let options = assignConfig("GET", headers, option);
 
+    let request = "";
+
     //Convert object to query string
-    let request = !!params ? objectToQueryString(params) : "";
+    if(params !== undefined)
+    {
+        request = objectToQueryString(params);
+    }
 
     //create request
     let response = await fetch(reqURL + request, options);
 
     if(response.status >= 400 && response.status < 500)
     {
-        if(returnJson) throw await response.json();
+        if(returnJson)
+        {
+            throw Object(await response.json() as Promise<T>);
+        }
 
-        throw response;
+        throw (response);
     }
     else if(response.status >= 500)
     {
-        throw  ("internal server error"); 
+        throw new Error ("internal server error"); 
     }
 
-    if(returnJson) return await response.json();
+    if(returnJson) return await response.json() as Promise<T>;
         
     return response;
 }

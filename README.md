@@ -368,6 +368,13 @@ const deleteRequest = async () =>
 }
 ```
 
+## Optional interfaces data type
+```js 
+await FETCHASYNC.get<MyInterface>("myURL");
+
+```
+
+
 ## Params details
 - URL: This parameter is to specify the URL that will be fetched
 - returnJson: This parameter is to specify if we are waiting for a JSON response or a promise. If false a promise will be returned. If true a JSON server response is expected. 

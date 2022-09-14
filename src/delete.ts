@@ -22,7 +22,11 @@ import {
  * @returns object
  * @thorws exceptions
  */
-export async function _delete(reqURL: string, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
+export async function _delete<T>(
+    reqURL: string, 
+    returnJson = true, 
+    headers?: HeadersInit, 
+    option?: optionSettings) : Promise<T | any>
 {
     //Validate option
     validateOptions(option);
@@ -35,16 +39,19 @@ export async function _delete(reqURL: string, returnJson = true, headers?: Heade
 
     if(response.status >= 400 && response.status < 500)
     {
-        if(returnJson) throw await response.json();
+        if(returnJson)
+        {
+            throw Object(await response.json() as Promise<T>);
+        }
 
-        throw response;
+        throw (response);
     }
     else if(response.status >= 500)
     {
-        throw  ("internal server error"); 
+        throw new Error ("internal server error"); 
     }
 
-    if(returnJson) return await response.json();
+    if(returnJson) return await response.json() as Promise<T>;
         
     return response;
 }

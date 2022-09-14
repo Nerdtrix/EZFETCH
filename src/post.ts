@@ -22,7 +22,12 @@ import {
  * @returns object
  * @thorws exceptions
  */
-export async function post(reqURL: string, body: object, returnJson = true, headers?: HeadersInit, option?: optionSettings) : Promise<any>
+export async function post<T>(
+    reqURL: string, 
+    body: object, 
+    returnJson = true, 
+    headers?: HeadersInit, 
+    option?: optionSettings) : Promise<T | any>
 {
     //Validate config
     validateOptions(option);
@@ -38,16 +43,19 @@ export async function post(reqURL: string, body: object, returnJson = true, head
 
     if(response.status >= 400 && response.status < 500)
     {
-        if(returnJson) throw await response.json();
+        if(returnJson)
+        {
+            throw Object(await response.json() as Promise<T>);
+        }
 
-        throw response;
+        throw (response);
     }
     else if(response.status >= 500)
     {
-        throw  ("internal server error"); 
+        throw new Error ("internal server error"); 
     }
 
-    if(returnJson) return await response.json();
+    if(returnJson) return await response.json() as Promise<T>;
         
     return response;
 }

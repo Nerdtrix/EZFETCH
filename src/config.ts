@@ -15,15 +15,15 @@ export interface optionSettings {
     redirect?: string,
     policy?: string
 }
-  
-  
+
+
 //Default headers
 const defaultHeaders: HeadersInit = {
     "Content-Type" : "application/json",
     "Accept" : "application/json"
 };
-  
-  
+
+
 //Valid request modes
 const requestMode: string[] = [
     "no-cors",
@@ -34,10 +34,10 @@ const requestMode: string[] = [
 
 //Valid request caches
 const requestCache: string[] = [
-    "no-cache", 
+    "no-cache",
     "default", //default
-    "reload", 
-    "force-cache", 
+    "reload",
+    "force-cache",
     "only-if-cached"
 ];
 
@@ -45,8 +45,8 @@ const requestCache: string[] = [
 //Valid request credentials
 const requestCredentials: string[] = [
     "same-origin",
-    "include", 
-    "omit"  
+    "include",
+    "omit"
 ];
 
 
@@ -73,41 +73,45 @@ const referrerPolicy: string[] = [
 
 /**
  * @method _objectToQueryString
- * @param {*} obj 
+ * @param {*} obj
  * @return string
  * convert object to query strings
  */
-export function objectToQueryString(obj: object) : string
+export function objectToQueryString(obj: any) : string
 {
-    if (Object.keys(obj).length == 0) return "";
+    if (Object.keys(obj).length === 0 || obj === undefined)
+    {
+        return "";
+    };
 
     let request = Object.keys(obj).map(key => key + '=' + obj[key]).join('&');
 
+    
     return "?" + request;
 }
 
 
 /**
- * 
+ *
  * @param option optionSettings
  * @comment validate request options
  */
 export function validateOptions(option?: optionSettings) : void
 {
     //Validations
-    if(!!option?.mode && !requestMode.includes(option?.mode)) throw ("invalid Request mode");
-    if(!!option?.cache && !requestCache.includes(option?.cache)) throw ("invalid Request cache");
-    if(!!option?.credentials && !requestCredentials.includes(option?.credentials)) throw ("invalid Request credential");
-    if(!!option?.redirect && !requestRedirect.includes(option?.redirect)) throw ("invalid Request redirect");
-    if(!!option?.policy && !referrerPolicy.includes(option?.policy)) throw ("invalid Request policy");
+    if(!!option?.mode && !requestMode.includes(option?.mode)) throw new Error("invalid Request mode");
+    if(!!option?.cache && !requestCache.includes(option?.cache)) throw new Error ("invalid Request cache");
+    if(!!option?.credentials && !requestCredentials.includes(option?.credentials)) throw new Error ("invalid Request credential");
+    if(!!option?.redirect && !requestRedirect.includes(option?.redirect)) throw new Error ("invalid Request redirect");
+    if(!!option?.policy && !referrerPolicy.includes(option?.policy)) throw new Error ("invalid Request policy");
 }
 
 
 /**
- * 
- * @param method 
- * @param headers 
- * @param option 
+ *
+ * @param method
+ * @param headers
+ * @param option
  * @returns object
  * @comment create a request header.
  */

@@ -17,15 +17,10 @@
     "url": "https://github.com/Nerdtrix/FetchAsync/issues"
   },
   "homepage": "https://github.com/Nerdtrix/FetchAsync#readme",
-  "dependencies": {
-    
-  },
-  "devDependencies" : {
-    "typescript": "^4.2.4"
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "files": [
     "build"
   ],
-  "peerDependencies": {
- }
+  "peerDependencies": {}
 }
