@@ -36,7 +36,7 @@ const getRequest = async () =>
 {
     try
     {
-        let response = await FETCHASYNC.get("myURL");
+        let response = await FETCHASYNC.get<T>("myURL");
 
         console.log(response);
     }
@@ -63,14 +63,14 @@ const getRequest = async () =>
         };
         
         let options = {
-            "mode": "cors",
-            "cache": "default",
-            "credentials": "include",
-            "redirect": "follow",
-            "policy": "no-referrer-when-downgrade"
+            mode: "cors",
+            cache: "default",
+            credentials: "include",
+            redirect: "follow",
+            policy: "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.get("myURL", params, true, headers, options);
+        let response = await FETCHASYNC.get<T>("myURL", params, true, headers, options);
 
         console.log(response);
     }
@@ -82,7 +82,7 @@ const getRequest = async () =>
 ```
 - To fetch an URL with params ex: http://myURL.com?example=test use the following example
 ```js
-let response = await FETCHASYNC.get("http://myURL.com", {"example" "test"});
+let response = await FETCHASYNC.get<T>("http://myURL.com", {"example" "test"});
 ```
 
 
@@ -107,7 +107,7 @@ const postRequest = async () =>
             example: "example"
         };
 
-        let response = await FETCHASYNC.post("myURL", body);
+        let response = await FETCHASYNC.post<T>("myURL", body);
 
         console.log(response);
     }
@@ -134,14 +134,35 @@ const postRequest = async () =>
         };
         
         let options = {
-            "mode": "cors",
-            "cache": "default",
-            "credentials": "include",
-            "redirect": "follow",
-            "policy": "no-referrer-when-downgrade"
+            mode: "cors",
+            cache: "default",
+            credentials: "include",
+            redirect: "follow",
+            policy: "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.post("myURL", body, true, headers, options);
+        let response = await FETCHASYNC.post<T>("myURL", body, true, headers, options);
+
+        console.log(response);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+```
+- POST File request
+```js
+const postFileRequest = async () => 
+{
+    try
+    {
+        let formData = new FormData();
+        formData.append('logo', input.files[0]);
+
+        let headers = {};//Let the browser decide the headers. If you manually add the header then you will need to also handle the boundaries. 
+
+        let response = await FETCHASYNC.post<T>("myURL", formData, true, headers);
 
         console.log(response);
     }
@@ -174,7 +195,7 @@ const putRequest = async () =>
             example: "example"
         };
 
-        let response = await FETCHASYNC.put("myURL", body);
+        let response = await FETCHASYNC.put<T>("myURL", body);
 
         console.log(response);
     }
@@ -201,14 +222,14 @@ const putRequest = async () =>
         };
         
         let options = {
-            "mode": "cors",
-            "cache": "default",
-            "credentials": "include",
-            "redirect": "follow",
-            "policy": "no-referrer-when-downgrade"
+            mode: "cors",
+            cache: "default",
+            credentials: "include",
+            redirect: "follow",
+            policy: "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.put("myURL", body, true, headers, options);
+        let response = await FETCHASYNC.put<T>("myURL", body, true, headers, options);
 
         console.log(response);
     }
@@ -238,7 +259,7 @@ const patchRequest = async () =>
             example: "example"
         };
 
-        let response = await FETCHASYNC.patch("myURL", body);
+        let response = await FETCHASYNC.patch<T>("myURL", body);
 
         console.log(response);
     }
@@ -265,14 +286,14 @@ const patchRequest = async () =>
         };
         
         let options = {
-            "mode": "cors",
-            "cache": "default",
-            "credentials": "include",
-            "redirect": "follow",
-            "policy": "no-referrer-when-downgrade"
+            mode: "cors",
+            cache: "default",
+            credentials: "include",
+            redirect: "follow",
+            policy: "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC.patch("myURL", body, true, headers, options);
+        let response = await FETCHASYNC.patch<T>("myURL", body, true, headers, options);
 
         console.log(response);
     }
@@ -298,7 +319,7 @@ const deleteRequest = async () =>
 {
     try
     {
-        let response = await FETCHASYNC._delete("myURL");
+        let response = await FETCHASYNC._delete<T>("myURL");
 
         console.log(response);
     }
@@ -321,14 +342,14 @@ const deleteRequest = async () =>
         };
         
         let options = {
-            "mode": "cors",
-            "cache": "default",
-            "credentials": "include",
-            "redirect": "follow",
-            "policy": "no-referrer-when-downgrade"
+            mode: "cors",
+            cache: "default",
+            credentials: "include",
+            redirect: "follow",
+            policy: "no-referrer-when-downgrade"
         }
 
-        let response = await FETCHASYNC._delete("myURL", true, headers, options);
+        let response = await FETCHASYNC._delete<T>("myURL", true, headers, options);
 
         console.log(response);
     }
@@ -380,6 +401,7 @@ await FETCHASYNC.get<MyInterface>("myURL");
 - returnJson: This parameter is to specify if we are waiting for a JSON response or a promise. If false a promise will be returned. If true a JSON server response is expected. 
 - headers: This parameter is to specify the headers required to fetch the API. See **Headers** above, to see the default headers.
 - options: This parameter is to specify the type of fetch configuration. See **Options** above to see the default fetch config.
+**Types are optionals** <T> is optional.
 
 ## Credits
 This module was inspired and created by [@jerryurenaa](http://jerryurenaa.com)

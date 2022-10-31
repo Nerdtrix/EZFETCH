@@ -10,8 +10,11 @@
 import {
     optionSettings, 
     assignConfig,
-    validateOptions} from './config';
-  
+    validateOptions,
+    defaultHeaders,
+    isJson} from './config';
+
+
     
 /**
  * @method post
@@ -24,22 +27,25 @@ import {
  */
 export async function post<T>(
     reqURL: string, 
-    body: object, 
+    body: object | any, 
     returnJson = true, 
-    headers?: HeadersInit, 
+    headers?: object, 
     option?: optionSettings) : Promise<T | any>
 {
     //Validate config
-    validateOptions(option);
-    
-    //Create options
-    let options = assignConfig("POST", headers, option);
+    if(!!option)  validateOptions(option);
 
-    //Add the body to the options
-    let optionsWithBody = Object.assign(options, {body: JSON.stringify(body)});
+    if(!headers) headers = defaultHeaders;
+
+    //Create options
+    let options = assignConfig("POST", headers as HeadersInit, option);
+
+    if(isJson(body)) JSON.stringify(body);
+
+    Object.assign(options, {body: body});
 
     //Create request
-    let response = await fetch(reqURL, optionsWithBody);
+    let response = await fetch(reqURL, options);
 
     if(response.status >= 400 && response.status < 500)
     {

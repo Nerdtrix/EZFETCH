@@ -18,7 +18,7 @@ export interface optionSettings {
 
 
 //Default headers
-const defaultHeaders: HeadersInit = {
+export const defaultHeaders : HeadersInit = {
     "Content-Type" : "application/json",
     "Accept" : "application/json"
 };
@@ -135,3 +135,22 @@ export function assignConfig(method: string, headers?: HeadersInit, option?: opt
 }
 
 
+/**
+ *
+ * @param data
+ * @returns boolean
+ * @comment check if the data is json or not.
+ */
+export function isJson(data : any) : boolean
+{
+    try 
+    {
+        JSON.parse(data);
+
+        return true;
+
+    } catch (e : unknown) 
+    {
+        return false;
+    }
+}
