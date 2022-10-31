@@ -384,7 +384,7 @@ const deleteRequest = async () =>
     "mode": "cors",
     "cache": "default",
     "credentials": "include",
-    "redirect": "follow",ch
+    "redirect": "follow",
     "policy": "no-referrer-when-downgrade"
 }
 ```
@@ -401,7 +401,7 @@ await FETCHASYNC.get<MyInterface>("myURL");
 - returnJson: This parameter is to specify if we are waiting for a JSON response or a promise. If false a promise will be returned. If true a JSON server response is expected. 
 - headers: This parameter is to specify the headers required to fetch the API. See **Headers** above, to see the default headers.
 - options: This parameter is to specify the type of fetch configuration. See **Options** above to see the default fetch config.
-**Types are optionals** <T> is optional.
+**Types are optionals** ```<T>``` is optional.
 
 ## Credits
 This module was inspired and created by [@jerryurenaa](http://jerryurenaa.com)
