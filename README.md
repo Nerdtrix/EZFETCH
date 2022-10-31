@@ -384,7 +384,7 @@ const deleteRequest = async () =>
     "mode": "cors",
     "cache": "default",
     "credentials": "include",
-    "redirect": "follow",
+    "redirect": "follow",ch
     "policy": "no-referrer-when-downgrade"
 }
 ```
